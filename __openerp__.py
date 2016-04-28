@@ -5,6 +5,7 @@
     'depends': ['purchase','crm_helpdesk'],
     'data': [
 	'ticket_view.xml',
+	'wizard/wizard_view.xml'
     ],
     'demo': [
     ],

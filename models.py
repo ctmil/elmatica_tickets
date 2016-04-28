@@ -17,8 +17,14 @@ class purchase_order(models.Model):
 
 	@api.multi
 	def action_create_ticket(self):
-		import pdb;pdb.set_trace()
-		res = {}
-		return res
+                return {'type': 'ir.actions.act_window',
+                        'name': 'Create PO Ticket',
+                        'res_model': 'purchase.order.ticket.confirm',
+                        'view_type': 'form',
+                        'view_mode': 'form',
+                        #'view_id': view_id,
+                        'target': 'new',
+                        'nodestroy': True,
+                        }
 
 	ticket_ids = fields.One2many(comodel_name='crm.helpdesk',inverse_name='purchase_id',string='Tickets')
