@@ -18,8 +18,8 @@ class purchase_order(models.Model):
 	@api.multi
 	def action_create_ticket(self):
                 return {'type': 'ir.actions.act_window',
-                        'name': 'Create PO Ticket',
-                        'res_model': 'purchase.order.ticket.confirm',
+                        'name': 'Create Ticket',
+                        'res_model': 'order.ticket.confirm',
                         'view_type': 'form',
                         'view_mode': 'form',
                         #'view_id': view_id,

@@ -1,14 +1,15 @@
 <openerp>
 	<data>
-		<record id="elmatica_wizard_confirm_quote" model="ir.ui.view">
+		<record id="elmatica_wizard_create_ticket" model="ir.ui.view">
 			<field name="name">Create Ticket</field>
-			<field name="model">purchase.order.ticket.confirm</field>
+			<field name="model">order.ticket.confirm</field>
 			<field name="arch" type="xml">
 				<form string="Additional Information">
 					<group string="Notes">
+						<field name="query" />
 						<field name="notes" />
 					</group>
-					<button name="confirm_po_ticket" type="object" string="Create Ticket" /> 
+					<button name="confirm_ticket" type="object" string="Create Ticket" /> 
 				</form>
 			</field>
 		</record>
