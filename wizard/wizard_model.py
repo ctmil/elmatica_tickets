@@ -41,7 +41,6 @@ class order_ticket_confirm(models.TransientModel):
                 	        }
 		else:
 			so = self.env['sale.order'].browse(self.env.context['active_id'])
-			import pdb;pdb.set_trace()
 			vals_so = {
 				'name': self.query,
 				'description': self.notes,
