@@ -39,5 +39,28 @@ class order_ticket_confirm(models.TransientModel):
 	                        'nodestroy': True,
 				'res_id': return_id.id
                 	        }
+		else:
+			so = self.env['sale.order'].browse(self.env.context['active_id'])
+			import pdb;pdb.set_trace()
+			vals_so = {
+				'name': self.query,
+				'description': self.notes,
+				'sale_order_id': so.id,
+				'partner_id': so.partner_id.id,
+				'user_id': self.env.context['uid'],
+				}
+			return_id = self.env['crm.helpdesk'].create(vals_so)	
+			#order.action_button_confirm()			
+			return {'type': 'ir.actions.act_window',
+        	                'name': 'Create Ticket - ticket',
+                	        'res_model': 'crm.helpdesk',
+                        	'view_type': 'form',
+	                        'view_mode': 'form',
+        	                #'view_id': view_id,
+                	        'target': 'new',
+	                        'nodestroy': True,
+				'res_id': return_id.id
+                	        }
+
 
 
