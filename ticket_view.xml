@@ -38,6 +38,20 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="view_crm_helpdesk_salepo">
+            <field name="name">crm.helpdesk.sales.purchase</field>
+            <field name="model">crm.helpdesk</field>
+            <field name="inherit_id" ref="crm_helpdesk.crm_case_form_view_helpdesk"/>
+            <field name="arch" type="xml">
+		<field name="ref2" position="after">
+			<group>
+				<field name="sale_order_id" />
+				<field name="purchase_id" />
+			</group>
+		</field>
+            </field>
+        </record>
+
     </data>
 </openerp>
 
