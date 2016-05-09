@@ -43,12 +43,16 @@
             <field name="model">crm.helpdesk</field>
             <field name="inherit_id" ref="crm_helpdesk.crm_case_form_view_helpdesk"/>
             <field name="arch" type="xml">
-		<field name="ref2" position="after">
-			<group>
-				<field name="sale_order_id" />
-				<field name="purchase_id" />
-			</group>
-		</field>
+		<page string="Extra Info" position="after">
+			<page string="Broker Information" group="base.group_sale_salesman">
+				<group string="Orders">
+					<field name="sale_order_id" />
+					<field name="customer_id" />
+					<field name="purchase_id" />
+					<field name="supplier_id" />
+				</group>
+			</page>
+		</page>
             </field>
         </record>
 

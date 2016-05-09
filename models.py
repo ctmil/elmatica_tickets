@@ -10,6 +10,21 @@ _logger = logging.getLogger(__name__)
 class crm_helpdesk(models.Model):
 	_inherit = 'crm.helpdesk'
 
+	@api.one
+	def _compute_supplier_id(self):
+		if self.purchase_id:
+			self.supplier_id = self.purchase_id.partner_id.id
+		else:
+			if self.sale_order_id:
+				if self.sale_order_id.purchase_ids:
+					self.supplier_id = self.sale_order_id.purchase_ids[0].partner_id.id
+
+	@api.one
+	def _compute_customer_id(self):
+		self.customer_id = self.sale_order_id.partner_id.id
+
+	supplier_id = fields.Many2one('res.partner',compute=_compute_supplier_id)
+	customer_id = fields.Many2one('res.partner',compute=_compute_customer_id)
 	purchase_id = fields.Many2one('purchase.order',string='Purchase Order')
 	sale_order_id = fields.Many2one('sale.order',string='Sale Order')
 
