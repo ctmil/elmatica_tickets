@@ -9,6 +9,12 @@ import ast
 #Get the logger
 _logger = logging.getLogger(__name__)
 
+class ticket_email(models.TransientModel):
+	_name = 'ticket.email'
+
+	subject = fields.Char(string='Subject')
+	body = fields.Text(string='Body')
+
 class order_ticket_confirm(models.TransientModel):
 	_name = 'order.ticket.confirm'
 

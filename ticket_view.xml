@@ -53,6 +53,9 @@
 				</group>
 			</page>
 		</page>
+                <button name="case_escalate">
+			<button name="email_supplier" string="E-mail supplier" type="object" />
+		</button>
             </field>
         </record>
 

@@ -1,5 +1,20 @@
 <openerp>
 	<data>
+
+		<record id="elmatica_wizard_email_supplier" model="ir.ui.view">
+			<field name="name">e-mail supplier</field>
+			<field name="model">ticket.email</field>
+			<field name="arch" type="xml">
+				<form string="Message">
+					<group string="Message">
+						<field name="subject" />
+						<field name="body" />
+					</group>
+					<!-- button name="confirm_ticket" type="object" string="Create Ticket" / -->  
+				</form>
+			</field>
+		</record>
+
 		<record id="elmatica_wizard_create_ticket" model="ir.ui.view">
 			<field name="name">Create Ticket</field>
 			<field name="model">order.ticket.confirm</field>
