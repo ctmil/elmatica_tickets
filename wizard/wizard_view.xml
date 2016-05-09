@@ -10,7 +10,7 @@
 						<field name="subject" />
 						<field name="body" />
 					</group>
-					<!-- button name="confirm_ticket" type="object" string="Create Ticket" / -->  
+					<button name="send_email" type="object" string="Send e-mail" />  
 				</form>
 			</field>
 		</record>

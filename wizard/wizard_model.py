@@ -12,8 +12,16 @@ _logger = logging.getLogger(__name__)
 class ticket_email(models.TransientModel):
 	_name = 'ticket.email'
 
-	subject = fields.Char(string='Subject')
-	body = fields.Text(string='Body')
+	subject = fields.Char(string='Subject',required=True)
+	body = fields.Text(string='Body',required=True)
+
+	@api.multi
+	def send_email(self):
+		ticket = self.env['crm.helpdesk'].browse(self.env.context['active_ids'])
+		if ticket:
+			if ticket.supplier_id:
+				ticket.message_post(body=self.body,subtype='mt_comment',partner_ids=[(6,0,(ticket.supplier_id.id))])
+		return None
 
 class order_ticket_confirm(models.TransientModel):
 	_name = 'order.ticket.confirm'
