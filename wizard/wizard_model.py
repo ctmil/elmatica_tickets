@@ -9,6 +9,33 @@ import ast
 #Get the logger
 _logger = logging.getLogger(__name__)
 
+class ticket_email_customer(models.TransientModel):
+	_name = 'ticket.email.customer'
+
+	subject = fields.Char(string='Subject',required=True)
+	body = fields.Text(string='Body',required=True)
+
+	@api.multi
+	def send_email(self):
+		ticket = self.env['crm.helpdesk'].browse(self.env.context['active_ids'])
+		if ticket:
+			import pdb;pdb.set_trace()
+			if ticket.customer_id:
+				ticket.message_post(body=self.body,subtype='mt_comment',partner_ids=[(6,0,[ticket.customer_id.id])])
+                                email_to = ticket.customer_id.email
+				if email_to:
+	                                vals = {
+        	                                'body': self.body,
+                	                        'body_html': self.body,
+                        	                'subject': self.subject,
+                                	        'email_to': email_to
+                                        	}
+	                                msg = self.env['mail.mail'].create(vals)
+        	                        if msg:
+						msg.send()
+
+		return None
+
 class ticket_email(models.TransientModel):
 	_name = 'ticket.email'
 
@@ -20,7 +47,19 @@ class ticket_email(models.TransientModel):
 		ticket = self.env['crm.helpdesk'].browse(self.env.context['active_ids'])
 		if ticket:
 			if ticket.supplier_id:
-				ticket.message_post(body=self.body,subtype='mt_comment',partner_ids=[(6,0,(ticket.supplier_id.id))])
+				ticket.message_post(body=self.body,subtype='mt_comment',partner_ids=[(6,0,[ticket.supplier_id.id])])
+                                email_to = ticket.supplier_id.email
+				if email_to:
+	                                vals = {
+        	                                'body': self.body,
+                	                        'body_html': self.body,
+                        	                'subject': self.subject,
+                                	        'email_to': email_to
+                                        	}
+	                                msg = self.env['mail.mail'].create(vals)
+        	                        if msg:
+						msg.send()
+
 		return None
 
 class order_ticket_confirm(models.TransientModel):

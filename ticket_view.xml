@@ -55,6 +55,7 @@
 		</page>
                 <button name="case_escalate">
 			<button name="email_supplier" string="E-mail supplier" type="object" />
+			<button name="email_customer" string="E-mail customer" type="object" />
 		</button>
             </field>
         </record>

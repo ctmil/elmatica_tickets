@@ -22,6 +22,18 @@ class crm_helpdesk(models.Model):
                         'nodestroy': True,
                         }
 
+	@api.multi
+	def email_customer(self):
+                return {'type': 'ir.actions.act_window',
+                        'name': 'e-mail Customer',
+                        'res_model': 'ticket.email.customer',
+                        'view_type': 'form',
+                        'view_mode': 'form',
+                        #'view_id': view_id,
+                        'target': 'new',
+                        'nodestroy': True,
+                        }
+
 
 	@api.one
 	def _compute_supplier_id(self):
