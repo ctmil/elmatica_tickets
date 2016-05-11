@@ -19,7 +19,6 @@ class ticket_email_customer(models.TransientModel):
 	def send_email(self):
 		ticket = self.env['crm.helpdesk'].browse(self.env.context['active_ids'])
 		if ticket:
-			import pdb;pdb.set_trace()
 			if ticket.customer_id:
 				ticket.message_post(body=self.body,subtype='mt_comment',partner_ids=[(6,0,[ticket.customer_id.id])])
                                 email_to = ticket.customer_id.email
