@@ -37,13 +37,17 @@
 					<button name="confirm_ticket" type="object" string="Create Ticket" 
 						class="oe_right oe_highlight" /> 
 				</header>
-				<form string="Additional Information">
-					<group string="Notes">
-						<field name="query" />
-						<field name="notes" />
-						<field name="ticket_file" />
-					</group>
-				</form>
+				<sheet>
+					<form string="Additional Information">
+						<group string="Notes">
+							<field name="query" />
+							<field name="notes" />
+						</group>
+						<group string="Files">
+							<field name="ticket_file" />
+						</group>
+					</form>
+				</sheet>
 			</field>
 		</record>
 
