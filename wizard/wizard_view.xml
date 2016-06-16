@@ -34,7 +34,8 @@
 			<field name="model">order.ticket.confirm</field>
 			<field name="arch" type="xml">
 				<header>
-					<button name="confirm_ticket" type="object" string="Create Ticket" /> 
+					<button name="confirm_ticket" type="object" string="Create Ticket" 
+						class="oe_right oe_highlight" /> 
 				</header>
 				<form string="Additional Information">
 					<group string="Notes">
