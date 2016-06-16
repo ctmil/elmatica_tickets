@@ -33,13 +33,15 @@
 			<field name="name">Create Ticket</field>
 			<field name="model">order.ticket.confirm</field>
 			<field name="arch" type="xml">
+				<header>
+					<button name="confirm_ticket" type="object" string="Create Ticket" /> 
+				</header>
 				<form string="Additional Information">
 					<group string="Notes">
 						<field name="query" />
 						<field name="notes" />
 						<field name="ticket_file" />
 					</group>
-					<button name="confirm_ticket" type="object" string="Create Ticket" /> 
 				</form>
 			</field>
 		</record>

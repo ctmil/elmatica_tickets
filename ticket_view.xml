@@ -50,7 +50,7 @@
 					<field name="customer_id" />
 					<field name="purchase_id" />
 					<field name="supplier_id" />
-					<field name="ticket_file" />
+					<field name="ticket_file" widget="binary"/>
 				</group>
 			</page>
 		</page>
