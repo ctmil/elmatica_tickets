@@ -37,6 +37,7 @@
 					<group string="Notes">
 						<field name="query" />
 						<field name="notes" />
+						<field name="ticket_file" />
 					</group>
 					<button name="confirm_ticket" type="object" string="Create Ticket" /> 
 				</form>
