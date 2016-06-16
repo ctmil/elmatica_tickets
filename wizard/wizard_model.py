@@ -66,6 +66,7 @@ class order_ticket_confirm(models.TransientModel):
 
 	query = fields.Char(string='Query')
 	notes = fields.Text(string='Notes')
+	ticket_file = fields.Binary(string='File')
 
 	@api.multi
 	def confirm_ticket(self):
@@ -78,6 +79,7 @@ class order_ticket_confirm(models.TransientModel):
 				'purchase_id': po.id,
 				'partner_id': po.partner_id.id,
 				'user_id': self.env.context['uid'],
+				'ticket_file': self.ticket_file,
 				}
 			return_id = self.env['crm.helpdesk'].create(vals_po)	
 			#order.action_button_confirm()			
@@ -99,6 +101,7 @@ class order_ticket_confirm(models.TransientModel):
 				'sale_order_id': so.id,
 				'partner_id': so.partner_id.id,
 				'user_id': self.env.context['uid'],
+				'ticket_file': self.ticket_file,
 				}
 			return_id = self.env['crm.helpdesk'].create(vals_so)	
 			#order.action_button_confirm()			

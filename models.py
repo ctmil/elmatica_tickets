@@ -52,6 +52,7 @@ class crm_helpdesk(models.Model):
 	customer_id = fields.Many2one('res.partner',compute=_compute_customer_id)
 	purchase_id = fields.Many2one('purchase.order',string='Purchase Order')
 	sale_order_id = fields.Many2one('sale.order',string='Sale Order')
+	ticket_file = fields.Binary(string='Ticket File')
 
 class purchase_order(models.Model):
 	_inherit = 'purchase.order'
