@@ -33,12 +33,12 @@
 			<field name="name">Create Ticket</field>
 			<field name="model">order.ticket.confirm</field>
 			<field name="arch" type="xml">
-				<header>
-					<button name="confirm_ticket" type="object" string="Create Ticket" 
-						class="oe_right oe_highlight" /> 
-				</header>
-				<sheet>
-					<form string="Additional Information">
+				<form string="Create Ticket">
+					<header>
+						<button name="confirm_ticket" type="object" string="Create Ticket" 
+							class="oe_right oe_highlight" /> 
+					</header>
+					<sheet>
 						<group string="Notes">
 							<field name="query" />
 							<field name="notes" />
@@ -46,8 +46,8 @@
 						<group string="Files">
 							<field name="ticket_file" />
 						</group>
-					</form>
-				</sheet>
+					</sheet>
+				</form>
 			</field>
 		</record>
 
