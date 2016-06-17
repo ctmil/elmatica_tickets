@@ -26,8 +26,7 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
 		<button name="action_button_confirm" position="after">
-	              <button name="action_create_ticket" string="Create ticket" 
-			class="oe_right oe_highlight" type="object"/>
+	              <button name="action_create_ticket" string="Create ticket" type="object"/>
                 </button>
 		<page string="Order Lines" position="after">
 			<page string="Tickets">
