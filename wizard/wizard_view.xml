@@ -44,7 +44,7 @@
 					<footer>
 						<button name="confirm_ticket" type="object" string="Create Ticket" 
 							class="oe_right oe_highlight" /> 
-					</footerr>
+					</footer>
 				</form>
 			</field>
 		</record>
