@@ -41,10 +41,10 @@
 					<group string="Files">
 						<field name="ticket_file" />
 					</group>
-					<header>
+					<footer>
 						<button name="confirm_ticket" type="object" string="Create Ticket" 
 							class="oe_right oe_highlight" /> 
-					</header>
+					</footerr>
 				</form>
 			</field>
 		</record>
