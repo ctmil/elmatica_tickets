@@ -34,19 +34,17 @@
 			<field name="model">order.ticket.confirm</field>
 			<field name="arch" type="xml">
 				<form string="Create Ticket">
+					<group string="Notes">
+						<field name="query" />
+						<field name="notes" />
+					</group>
+					<group string="Files">
+						<field name="ticket_file" />
+					</group>
 					<header>
 						<button name="confirm_ticket" type="object" string="Create Ticket" 
 							class="oe_right oe_highlight" /> 
 					</header>
-					<sheet>
-						<group string="Notes">
-							<field name="query" />
-							<field name="notes" />
-						</group>
-						<group string="Files">
-							<field name="ticket_file" />
-						</group>
-					</sheet>
 				</form>
 			</field>
 		</record>
