@@ -20,7 +20,7 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="view_ticket_sale_order_form">
+        <!-- record model="ir.ui.view" id="view_ticket_sale_order_form">
             <field name="name">sale.order.sales.purchase</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
@@ -36,7 +36,7 @@
 			</page>
 		</page>
             </field>
-        </record>
+        </record -->
 
         <record model="ir.ui.view" id="view_crm_helpdesk_salepo">
             <field name="name">crm.helpdesk.sales.purchase</field>
