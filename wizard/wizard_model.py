@@ -103,7 +103,7 @@ class order_ticket_confirm(models.TransientModel):
 				'sale_order_id': so.id,
 				'partner_id': so.partner_id.id,
 				'user_id': self.env.context['uid'],
-				'ticket_file': (6,0,self.attachment_ids),
+				'attachment_ids': (6,0,self.attachment_ids),
 				}
 			return_id = self.env['crm.helpdesk'].create(vals_so)	
 			#order.action_button_confirm()			
