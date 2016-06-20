@@ -10,13 +10,13 @@
 		<button name="purchase_confirm" position="after">
 	              <button name="action_create_ticket" string="Create ticket" type="object"/>
                 </button>
-		<page string="Products" position="after">
+		<!-- page string="Products" position="after">
 			<page string="Tickets">
 				<group string="Tickets">
 					<field name="ticket_ids" />
 				</group>
 			</page>
-		</page>
+		</page -->
             </field>
         </record>
 
@@ -54,10 +54,10 @@
 				</group>
 			</page>
 		</page>
-                <button name="case_escalate">
+                <!-- button name="case_escalate">
 			<button name="email_supplier" string="E-mail supplier" type="object" />
 			<button name="email_customer" string="E-mail customer" type="object" />
-		</button>
+		</button -->
             </field>
         </record>
 
