@@ -34,12 +34,10 @@
 			<field name="model">order.ticket.confirm</field>
 			<field name="arch" type="xml">
 				<form string="Create Ticket">
-					<group string="Notes">
+					<group string="Notes and Files">
 						<field name="query" />
 						<field name="notes" />
-					</group>
-					<group string="Files">
-						<field name="ticket_file" />
+						<field name="attachment_ids" widget="many2many_binary" />
 					</group>
 					<footer>
 						<button name="confirm_ticket" type="object" string="Create Ticket" 
