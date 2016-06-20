@@ -52,7 +52,7 @@ class crm_helpdesk(models.Model):
 	customer_id = fields.Many2one('res.partner',compute=_compute_customer_id)
 	purchase_id = fields.Many2one('purchase.order',string='Purchase Order')
 	sale_order_id = fields.Many2one('sale.order',string='Sale Order')
-	attachment_ids: fields.Many2many(comodel_name='ir.attachment', relation='tickets_files','ticket_id', 'attachment_id', 'Attachments'),
+	attachment_ids = fields.Many2many(comodel_name='ir.attachment', relation='tickets_files','ticket_id', 'attachment_id', 'Attachments'),
 
 
 
