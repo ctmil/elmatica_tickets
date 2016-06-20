@@ -11,6 +11,5 @@
     'demo': [
     ],
     'qweb': [],
-    # 'css': ['static/src/css/styles.css',],
     'installable': True,
 }
