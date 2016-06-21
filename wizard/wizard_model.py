@@ -107,6 +107,8 @@ class order_ticket_confirm(models.TransientModel):
 				}
 			return_id = self.env['crm.helpdesk'].create(vals_so)	
 			#order.action_button_confirm()			
+			return None
+			"""
 			return {'type': 'ir.actions.act_window',
         	                'name': 'Create Ticket - ticket',
                 	        'res_model': 'crm.helpdesk',
@@ -118,5 +120,5 @@ class order_ticket_confirm(models.TransientModel):
 				'res_id': return_id.id
                 	        }
 
-
+			"""
 

@@ -82,7 +82,7 @@ class sale_order(models.Model):
                         'res_model': 'order.ticket.confirm',
                         'view_type': 'form',
                         'view_mode': 'form',
-                        #'view_id': view_id,
+                        # 'view_id': 
                         'target': 'new',
                         'nodestroy': True,
                         }
