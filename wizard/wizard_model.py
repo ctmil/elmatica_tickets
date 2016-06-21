@@ -112,7 +112,7 @@ class order_ticket_confirm(models.TransientModel):
                 	        'res_model': 'crm.helpdesk',
                         	'view_type': 'form',
 	                        'view_mode': 'form',
-        	                'view_id': 'view_crm_helpdesk_salepo',
+        	                'view_id': 'elmatica_tickets.view_crm_helpdesk_salepo',
                 	        'target': 'new',
 	                        'nodestroy': True,
 				'res_id': return_id.id
