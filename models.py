@@ -10,7 +10,6 @@ _logger = logging.getLogger(__name__)
 class crm_helpdesk(models.Model):
 	_inherit = 'crm.helpdesk'
 
-	"""
 	@api.multi
 	def email_supplier(self):
                 return {'type': 'ir.actions.act_window',
@@ -34,8 +33,6 @@ class crm_helpdesk(models.Model):
                         'target': 'new',
                         'nodestroy': True,
                         }
-	"""
-
 	@api.one
 	def _compute_supplier_id(self):
 		if self.purchase_id:
