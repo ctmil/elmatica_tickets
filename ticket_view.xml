@@ -23,7 +23,7 @@
         <record model="ir.ui.view" id="view_ticket_sale_order_form">
             <field name="name">sale.order.sales.purchase</field>
             <field name="model">sale.order</field>
-            <field name="inherit_id" ref="elmatica_sales_purchase.view_order_form_sales_purchase"/>
+            <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
 		<button name="action_button_confirm" position="after">
 	              <button name="action_create_ticket" string="Create ticket" type="object"/>
