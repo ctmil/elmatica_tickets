@@ -45,11 +45,18 @@
             <field name="arch" type="xml">
 		<page string="Extra Info" position="after">
 			<page string="Broker Information" group="base.group_sale_salesman">
-				<group string="Orders">
-					<field name="sale_order_id" />
-					<field name="customer_id" />
-					<field name="purchase_id" />
-					<field name="supplier_id" />
+	                        <group col="4" colspan="4">
+					<group string="Sale Orders">
+						<field name="sale_order_id" />
+						<field name="customer_id" />
+					</group>
+					<group string="Purchase Orders">
+						<field name="purchase_id" />
+						<field name="purchase_sale_id" />
+						<field name="supplier_id" />
+					</group>
+				</group>
+				<group string="Attachments">
 					<field name="attachment_ids" widget="many2many_binary"/>
 				</group>
 			</page>
