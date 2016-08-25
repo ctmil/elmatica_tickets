@@ -12,6 +12,7 @@ _logger = logging.getLogger(__name__)
 class ticket_email_customer(models.TransientModel):
 	_name = 'ticket.email.customer'
 
+	email_cc = fields.Char(string='Cc')
 	subject = fields.Char(string='Subject',required=True)
 	body = fields.Text(string='Body',required=True)
 
@@ -25,6 +26,7 @@ class ticket_email_customer(models.TransientModel):
 				if email_to:
 	                                vals = {
         	                                'body': self.body,
+						'email_cc': self.email_cc,
                 	                        'body_html': self.body,
                         	                'subject': self.subject,
                                 	        'email_to': email_to
