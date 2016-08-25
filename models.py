@@ -24,12 +24,18 @@ class crm_helpdesk(models.Model):
 
 	@api.multi
 	def email_customer(self):
+		vals = {
+			'subject': self.name,
+			'body': self.name,
+			}
+		ticket_email_customer = self.env['ticket.email.customer'].create(vals)
                 return {'type': 'ir.actions.act_window',
                         'name': 'e-mail Customer',
                         'res_model': 'ticket.email.customer',
                         'view_type': 'form',
                         'view_mode': 'form',
                         #'view_id': view_id,
+			'res_id': ticket_email_customer.id,
                         'target': 'new',
                         'nodestroy': True,
                         }
