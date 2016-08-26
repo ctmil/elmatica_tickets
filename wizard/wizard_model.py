@@ -94,10 +94,10 @@ class order_ticket_confirm(models.TransientModel):
 				'partner_id': po.partner_id.id,
 				'user_id': self.env.context['uid'],
 				}
-			if attachments:
-				attachment_ids= (6,0,attachments.ids)
 
 			return_id = self.env['crm.helpdesk'].create(vals_po)	
+			for attachment in attachments:
+				new_attachment = attachment.copy({'res_model': 'crm.helpdesk', 'res_id': return_id.id})
 			#order.action_button_confirm()			
 			return {'type': 'ir.actions.act_window',
         	                'name': 'Create Ticket - ticket',
@@ -120,9 +120,9 @@ class order_ticket_confirm(models.TransientModel):
 				'partner_id': so.partner_id.id,
 				'user_id': self.env.context['uid'],
 				}
-			if attachments:
-				attachment_ids= (6,0,attachments.ids)
 			return_id = self.env['crm.helpdesk'].create(vals_so)	
+			for attachment in attachments:
+				new_attachment = attachment.copy({'res_model': 'crm.helpdesk', 'res_id': return_id.id})
 			#order.action_button_confirm()			
 			return None
 			"""
