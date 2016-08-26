@@ -19,31 +19,34 @@ class crm_helpdesk(models.Model):
 		assert len(self) == 1, 'This option should only be used for a single id at a time.'
 
 		compose_form = self.env.ref('mail.email_compose_message_wizard_form', False)
-		if self.supplier_id:
-			vals_message = {
-				'res_id': self.id,
-				'res_model': 'crm.helpdesk',
-				'partner_ids': (6,0,[self.supplier_id.id])
-				}
-			message_id = self.env['mail.compose.message'].create(vals_message)
-		ctx = dict(
-			default_model='crm.helpdesk',
-			default_res_id=self.id,
-			#default_use_template=bool(template),
-			#default_template_id=template.id,
-			default_composition_mode='comment',
-			#mark_invoice_as_sent=False,
-			#default_is_log=True,
-			#is_log=True,
-			#internal_partners_only=True,
-		       )
+		#if self.supplier_id:
+		#	vals_message = {
+		#		'res_id': self.id,
+		#		'res_model': 'crm.helpdesk',
+		#		'partner_ids': (6,0,[self.supplier_id.id])
+		#		}
+		#	message_id = self.env['mail.compose.message'].create(vals_message)
+		if self.supplier_id.email:
+			ctx = dict(
+				default_model='crm.helpdesk',
+				default_res_id=self.id,
+				default_email_to=self.supplier_id.email,
+				default_partner_ids=[self.supplier_id.id],
+				#default_use_template=bool(template),
+				#default_template_id=template.id,
+				default_composition_mode='comment',
+				#mark_invoice_as_sent=False,
+				#default_is_log=True,
+				#is_log=True,
+				#internal_partners_only=True,
+			       )	
 		return {
 	        	    'name': title_window,
 	        	    'type': 'ir.actions.act_window',
 		            'view_type': 'form',
         		    'view_mode': 'form',
 		            #'res_model': 'elmatica_invoice.mail.compose.message', # 'compose.message', # 'mail.compose.message',
-			    'res_id': message_id.id,
+			    #'res_id': message_id.id,
         		    'res_model': 'mail.compose.message',
 	        	    'views': [(compose_form.id, 'form')],
 	        	    'view_id': compose_form.id,
