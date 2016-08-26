@@ -21,6 +21,8 @@ class crm_helpdesk(models.Model):
 		compose_form = self.env.ref('mail.email_compose_message_wizard_form', False)
 		if self.supplier_id:
 			vals_message = {
+				'res_id': self.id,
+				'res_model': 'crm.helpdesk',
 				'partner_ids': (6,0,[self.supplier_id.id])
 				}
 			message_id = self.env['mail.compose.message'].create(vals_message)
