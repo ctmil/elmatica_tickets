@@ -45,6 +45,7 @@ class ticket_email_customer(models.TransientModel):
 class ticket_email(models.TransientModel):
 	_name = 'ticket.email'
 
+	email_cc = fields.Char(string='Cc')
 	subject = fields.Char(string='Subject',required=True)
 	body = fields.Text(string='Body',required=True)
 
@@ -59,6 +60,7 @@ class ticket_email(models.TransientModel):
                                 email_to = ticket.supplier_id.email
 				if email_to:
 	                                vals = {
+						'email_cc': self.email_cc,
         	                                'body': self.body,
                 	                        'body_html': self.body,
                         	                'subject': self.subject,

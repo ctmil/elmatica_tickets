@@ -12,12 +12,18 @@ class crm_helpdesk(models.Model):
 
 	@api.multi
 	def email_supplier(self):
+		vals = {
+			'subject': self.name,
+			'body': self.name,
+			}
+		ticket_email = self.env['ticket.email'].create(vals)
                 return {'type': 'ir.actions.act_window',
                         'name': 'e-mail Supplier',
                         'res_model': 'ticket.email',
                         'view_type': 'form',
                         'view_mode': 'form',
                         #'view_id': view_id,
+			'res_id': ticket_email.id,
                         'target': 'new',
                         'nodestroy': True,
                         }
@@ -57,8 +63,6 @@ class crm_helpdesk(models.Model):
 	purchase_id = fields.Many2one('purchase.order',string='Purchase Order')
 	purchase_sale_id = fields.Many2one('sale.order',string='Sale Order related to Purchase Order',related='purchase_id.sale_order_id')
 	sale_order_id = fields.Many2one('sale.order',string='Sale Order')
-	attachment_ids = fields.Many2many(comodel_name='ir.attachment', relation='tickets_files',\
-			column1='ticket_id', column2='attachment_id', string='Attachments')
 
 
 

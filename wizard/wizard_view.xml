@@ -23,6 +23,7 @@
 				<form string="Message">
 					<group string="Message">
 						<field name="subject" />
+						<field name="email_cc" />
 						<field name="body" />
 					</group>
 					<button name="send_email" type="object" string="Send e-mail" />  
