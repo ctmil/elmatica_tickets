@@ -88,14 +88,18 @@ class order_ticket_confirm(models.TransientModel):
 		#action_button_confirm
 		if self.env.context['active_model'] == 'purchase.order':
 			po = self.env['purchase.order'].browse(self.env.context['active_id'])
+			attachments = self.env['ir.attachment'].search([('res_model','=','purchase.order'),\
+                                                ('res_id','=',po.id)])
 			vals_po = {
 				'name': self.query,
 				'description': self.notes,
 				'purchase_id': po.id,
 				'partner_id': po.partner_id.id,
 				'user_id': self.env.context['uid'],
-				'attachment_ids': (6,0,self.attachment_ids),
 				}
+			if attachments:
+				'attachment_ids': (6,0,attachments.ids),
+
 			return_id = self.env['crm.helpdesk'].create(vals_po)	
 			#order.action_button_confirm()			
 			return {'type': 'ir.actions.act_window',
@@ -110,14 +114,17 @@ class order_ticket_confirm(models.TransientModel):
                 	        }
 		else:
 			so = self.env['sale.order'].browse(self.env.context['active_id'])
+			attachments = self.env['ir.attachment'].search([('res_model','=','sale.order'),\
+                                                ('res_id','=',so.id)])
 			vals_so = {
 				'name': self.query,
 				'description': self.notes,
 				'sale_order_id': so.id,
 				'partner_id': so.partner_id.id,
 				'user_id': self.env.context['uid'],
-				'attachment_ids': (6,0,self.attachment_ids),
 				}
+			if attachments:
+				'attachment_ids': (6,0,attachments.ids),
 			return_id = self.env['crm.helpdesk'].create(vals_so)	
 			#order.action_button_confirm()			
 			return None
