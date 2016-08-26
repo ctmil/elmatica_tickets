@@ -98,7 +98,7 @@ class order_ticket_confirm(models.TransientModel):
 				'user_id': self.env.context['uid'],
 				}
 			if attachments:
-				'attachment_ids': (6,0,attachments.ids),
+				'attachment_ids'= (6,0,attachments.ids)
 
 			return_id = self.env['crm.helpdesk'].create(vals_po)	
 			#order.action_button_confirm()			
@@ -124,7 +124,7 @@ class order_ticket_confirm(models.TransientModel):
 				'user_id': self.env.context['uid'],
 				}
 			if attachments:
-				'attachment_ids': (6,0,attachments.ids),
+				'attachment_ids'= (6,0,attachments.ids)
 			return_id = self.env['crm.helpdesk'].create(vals_so)	
 			#order.action_button_confirm()			
 			return None
