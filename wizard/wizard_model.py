@@ -21,6 +21,10 @@ class ticket_email_customer(models.TransientModel):
 		ticket = self.env['crm.helpdesk'].browse(self.env.context['active_ids'])
 		if ticket:
 			if ticket.customer_id:
+				# Checks for attachments
+				attachments = self.env['ir.attachment'].search([('res_model','=','crm.helpdesk'),\
+						('res_id','=',ticket.id)])
+				import pdb;pdb.set_trace()
 				ticket.message_post(body=self.body,subtype='mt_comment',partner_ids=[(6,0,[ticket.customer_id.id])])
                                 email_to = ticket.customer_id.email
 				if email_to:
@@ -29,11 +33,12 @@ class ticket_email_customer(models.TransientModel):
 						'email_cc': self.email_cc,
                 	                        'body_html': self.body,
                         	                'subject': self.subject,
-                                	        'email_to': email_to
+                                	        'email_to': email_to,
+						'attachment_ids': [(6,0,attachment_ids)]
                                         	}
 	                                msg = self.env['mail.mail'].create(vals)
-        	                        if msg:
-						msg.send()
+        	                        #if msg:
+					#	msg.send()
 
 		return None
 
