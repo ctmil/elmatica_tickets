@@ -79,9 +79,6 @@ class order_ticket_confirm(models.TransientModel):
 
 	query = fields.Char(string='Query')
 	notes = fields.Text(string='Notes')
-        attachment_ids = fields.Many2many(comodel_name='ir.attachment', relation='tickets_files',\
-                        column1='ticket_id', column2='attachment_id', string='Attachments')
-
 
 	@api.multi
 	def confirm_ticket(self):

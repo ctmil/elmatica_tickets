@@ -39,7 +39,6 @@
 					<group string="Notes and Files">
 						<field name="query" />
 						<field name="notes" />
-						<field name="attachment_ids" widget="many2many_binary" />
 					</group>
 					<footer>
 						<button name="confirm_ticket" type="object" string="Create Ticket" 
