@@ -59,8 +59,10 @@
 			</page>
 		</page>
                 <button name="case_escalate">
-			<button name="email_supplier" string="E-mail supplier" type="object" />
-			<button name="email_customer" string="E-mail customer" type="object" />
+			<button name="email_supplier" string="E-mail supplier" type="object" 
+				attrs="{'invisible': [('supplier_id','=',False)]'}"/>
+			<button name="email_customer" string="E-mail customer" type="object" 
+				attrs="{'invisible': [('customer_id','=',False)]'}"/>
 		</button>
             </field>
         </record>
