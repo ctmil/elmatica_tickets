@@ -98,7 +98,7 @@ class crm_helpdesk(models.Model):
 				#is_log=True,
 				#internal_partners_only=True,
 			       )	
-		return {
+			return {
 	        	    'name': title_window,
 	        	    'type': 'ir.actions.act_window',
 		            'view_type': 'form',
@@ -110,7 +110,7 @@ class crm_helpdesk(models.Model):
 	        	    'view_id': compose_form.id,
 		            'target': 'new',
         		    'context': ctx,
-		        }
+			        }
 
 		#vals = {
 		#	'subject': self.name,
