@@ -181,3 +181,25 @@ class sale_order(models.Model):
                         }
 
 	ticket_ids = fields.One2many(comodel_name='crm.helpdesk',inverse_name='sale_order_id',string='Tickets')
+
+
+class mail_compose_message(models.TransientModel):
+	#_inherit = 'email_template.wizard.mail_compose_message'
+	#_name = 'elmatica_invoice.mail.compose.message'
+	_inherit = 'mail.compose.message'
+	_description = 'Email compose wizard for supplier'
+
+	@api.model
+	def default_get(self, all_fields):
+        	res = super(mail_compose_message, self).default_get(all_fields)
+		if self._context.get('active_model') != 'crm.helpdesk':
+			return res
+
+		active_id = self._context.get('active_id', None)
+		assert active_id
+		attachments = self.env['ir.attachment'].search([('res_model','=','crm.helpdesk'),\
+					('res_id','=',active_id)])
+		if attachments:
+			attachment_ids = attachments.ids
+			res['attachment_ids'] = [(6, 0, attachment_ids)]
+		return res
