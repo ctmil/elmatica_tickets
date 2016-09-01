@@ -91,7 +91,7 @@ class order_ticket_confirm(models.TransientModel):
 				'name': self.query,
 				'description': self.notes,
 				'purchase_id': po.id,
-				'sale_order_id': po.sale_id.id,
+				'sale_order_id': po.sale_order_id.id,
 				'partner_id': po.partner_id.id,
 				'user_id': self.env.context['uid'],
 				}
