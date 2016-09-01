@@ -55,9 +55,9 @@
 						<field name="purchase_sale_id" />
 						<field name="supplier_id" />
 					</group>
-					<group string="Tickets">
-						<field name="lead_id" />
-					</group>
+				</group>
+				<group string="Tickets">
+					<field name="lead_id" />
 				</group>
 			</page>
 		</page>
