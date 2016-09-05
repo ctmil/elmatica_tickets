@@ -22,8 +22,8 @@ class ticket_email_customer(models.TransientModel):
 		if ticket:
 			if ticket.customer_id:
 				# Checks for attachments
-				attachments = self.env['ir.attachment'].search([('res_model','=','crm.helpdesk'),\
-						('res_id','=',ticket.id)])
+				#attachments = self.env['ir.attachment'].search([('res_model','=','crm.helpdesk'),\
+				#		('res_id','=',ticket.id)])
 				ticket.message_post(body=self.body,subtype='mt_comment',partner_ids=[(6,0,[ticket.customer_id.id])])
                                 email_to = ticket.customer_id.email
 				if email_to:
@@ -54,8 +54,8 @@ class ticket_email(models.TransientModel):
 		ticket = self.env['crm.helpdesk'].browse(self.env.context['active_ids'])
 		if ticket:
 			if ticket.supplier_id:
-				attachments = self.env['ir.attachment'].search([('res_model','=','crm.helpdesk'),\
-						('res_id','=',ticket.id)])
+				#attachments = self.env['ir.attachment'].search([('res_model','=','crm.helpdesk'),\
+				#		('res_id','=',ticket.id)])
 				ticket.message_post(body=self.body,subtype='mt_comment',partner_ids=[(6,0,[ticket.supplier_id.id])])
                                 email_to = ticket.supplier_id.email
 				if email_to:
