@@ -37,6 +37,7 @@ class crm_helpdesk(models.Model):
 				#default_use_template=bool(template),
 				#default_template_id=template.id,
 				default_composition_mode='comment',
+				elmatica_tickets=True,
 				#mark_invoice_as_sent=False,
 				#default_is_log=True,
 				#is_log=True,

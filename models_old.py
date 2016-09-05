@@ -1,7 +1,7 @@
 from openerp.osv import fields, osv
 from openerp.tools.safe_eval import safe_eval as eval
 from openerp.tools.translate import _
-from openerp.tools import tools
+from openerp import tools
 
 # main mako-like expression pattern
 
@@ -46,7 +46,8 @@ class mail_compose_message(osv.TransientModel):
         if subject and not (subject.startswith('Re:') or subject.startswith(re_prefix)):
             subject = "%s %s" % (re_prefix, subject)
         result['subject'] = subject
-	import pdb;pdb.set_trace()
+	if context.pop('default_model') == 'crm.helpdesk' and context.pop('elmatica_tickets') == True:
+		result['attachment_ids'] = None
         return result
 
 mail_compose_message()
