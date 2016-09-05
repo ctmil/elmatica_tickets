@@ -34,8 +34,8 @@ class ticket_email_customer(models.TransientModel):
                         	                'subject': self.subject,
                                 	        'email_to': email_to,
                                         	}
-					if attachments:
-						vals['attachment_ids'] = [(6,0,attachments.ids)]
+					#if attachments:
+					#	vals['attachment_ids'] = [(6,0,attachments.ids)]
 	                                msg = self.env['mail.mail'].create(vals)
         	                        if msg:
 						msg.send()
@@ -66,8 +66,8 @@ class ticket_email(models.TransientModel):
                         	                'subject': self.subject,
                                 	        'email_to': email_to
                                         	}
-					if attachments:
-						vals['attachment_ids'] = [(6,0,attachments.ids)]
+					#if attachments:
+					#	vals['attachment_ids'] = [(6,0,attachments.ids)]
 	                                msg = self.env['mail.mail'].create(vals)
         	                        if msg:
 						msg.send()

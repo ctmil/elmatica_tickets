@@ -143,7 +143,6 @@ class crm_helpdesk(models.Model):
 	supplier_id = fields.Many2one('res.partner',compute=_compute_supplier_id)
 	customer_id = fields.Many2one('res.partner',compute=_compute_customer_id)
 	purchase_id = fields.Many2one('purchase.order',string='Purchase Order')
-	purchase_sale_id = fields.Many2one('sale.order',string='Sale Order related to Purchase Order',related='purchase_id.sale_order_id')
 	sale_order_id = fields.Many2one('sale.order',string='Sale Order')
 
 
