@@ -1,4 +1,4 @@
-from openerp.osv import fields
+from openerp.osv import fields, osv
 from openerp.tools.safe_eval import safe_eval as eval
 from openerp.tools.translate import _
 
@@ -21,7 +21,6 @@ class mail_compose_message(osv.TransientModel):
         wizard when sending an email related a previous email (parent_id) or
         a document (model, res_id). This is based on previously computed default
         values. """
-	import pdb;pdb.set_trace()
         if context is None:
             context = {}
         result, subject = {}, False
@@ -46,7 +45,7 @@ class mail_compose_message(osv.TransientModel):
         if subject and not (subject.startswith('Re:') or subject.startswith(re_prefix)):
             subject = "%s %s" % (re_prefix, subject)
         result['subject'] = subject
-
+	import pdb;pdb.set_trace()
         return result
 
 mail_compose_message()
