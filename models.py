@@ -54,6 +54,7 @@ class crm_helpdesk(models.Model):
         			    'context': ctx,
 			        }
 		else:
+                        raise osv.except_osv(('Error'), ('Supplier has no e-mnail'))
 			
 
 		#vals = {
@@ -114,7 +115,7 @@ class crm_helpdesk(models.Model):
         		    'context': ctx,
 			        }
 		else:
-                        raise osv.except_osv(('Error'), ('Supplier has no e-mnail'))
+                        raise osv.except_osv(('Error'), ('Customer has no e-mnail'))
 
 		#vals = {
 		#	'subject': self.name,
