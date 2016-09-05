@@ -46,8 +46,9 @@ class mail_compose_message(osv.TransientModel):
         if subject and not (subject.startswith('Re:') or subject.startswith(re_prefix)):
             subject = "%s %s" % (re_prefix, subject)
         result['subject'] = subject
-	if context.pop('default_model') == 'crm.helpdesk' and context.pop('elmatica_tickets') == True:
-		result['attachment_ids'] = None
+	if context.has_key('default_model') and context.has_key('elmatica_tickets'):
+		if context['default_model'] == 'crm.helpdesk' and context['elmatica_tickets'] == True:
+			result['attachment_ids'] = None
         return result
 
 mail_compose_message()
