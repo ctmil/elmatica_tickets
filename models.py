@@ -40,19 +40,21 @@ class crm_helpdesk(models.Model):
 				#is_log=True,
 				#internal_partners_only=True,
 			       )	
-		return {
-	        	    'name': title_window,
-	        	    'type': 'ir.actions.act_window',
-		            'view_type': 'form',
-        		    'view_mode': 'form',
-		            #'res_model': 'elmatica_invoice.mail.compose.message', # 'compose.message', # 'mail.compose.message',
-			    #'res_id': message_id.id,
-        		    'res_model': 'mail.compose.message',
-	        	    'views': [(compose_form.id, 'form')],
-	        	    'view_id': compose_form.id,
-		            'target': 'new',
-        		    'context': ctx,
-		        }
+			return {
+		        	    'name': title_window,
+	        		    'type': 'ir.actions.act_window',
+		        	    'view_type': 'form',
+	        		    'view_mode': 'form',
+			            #'res_model': 'elmatica_invoice.mail.compose.message', # 'compose.message', # 'mail.compose.message',
+				    #'res_id': message_id.id,
+        			    'res_model': 'mail.compose.message',
+		        	    'views': [(compose_form.id, 'form')],
+		        	    'view_id': compose_form.id,
+			            'target': 'new',
+        			    'context': ctx,
+			        }
+		else:
+			
 
 		#vals = {
 		#	'subject': self.name,
@@ -111,6 +113,8 @@ class crm_helpdesk(models.Model):
 		            'target': 'new',
         		    'context': ctx,
 			        }
+		else:
+                        raise osv.except_osv(('Error'), ('Supplier has no e-mnail'))
 
 		#vals = {
 		#	'subject': self.name,
